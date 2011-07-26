@@ -40,6 +40,7 @@
   <project path="libcore" name="platform/libcore" revision="linaro_android_2.3.4" remote="linaro-android" />
   <project path="system/media" name="platform/system/media" revision="linaro_android_2.3.4" remote="linaro-android" />
   <project path="external/svox" name="platform/external/svox" revision="linaro_android_2.3.4" remote="linaro-android" />
+  <project path="external/busybox" name="platform/external/busybox" revision="linaro_android_2.3.4" remote="linaro-android" />
 
   <!-- Power WG -->
   <project name="tools/powertop" path="external/powertop" remote="linaro-other" revision="71e15db3e0714dfdb9949c24cf676a65bb6c54f0"/>
