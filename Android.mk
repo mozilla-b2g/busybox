@@ -1,4 +1,8 @@
+# LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
+# LOCAL_MODULE := busybox
+# LOCAL_MODULE_TAGS := eng
+
 TC_DIR = $(shell dirname $(TARGET_TOOLS_PREFIX))
 TC_PREFIX = $(shell basename $(TARGET_TOOLS_PREFIX))
 COMPILER_FLAGS = $(subst -I ,-I../../,$(subst -include ,-include ../../,$(TARGET_GLOBAL_CFLAGS))) -I../../bionic/libc/include -I../../bionic/libc/kernel/common -I../../bionic/libc/arch-arm/include -I../../bionic/libc/kernel/arch-arm
@@ -15,3 +19,12 @@ busybox:
 	export PATH=$(TC_DIR):$(PATH) && \
 	make oldconfig && \
 	make V=1 VERBOSE=1
+
+# LOCAL_PATH := $(call my-dir)
+# include $(CLEAR_VARS)
+
+# LOCAL_MODULE := busybox
+# LOCAL_MODULE_TAGS := eng
+# LOCAL_PREBUILT_EXECUTABLES := busybox
+# include $(BUILD_MULTI_PREBUILT)
+
