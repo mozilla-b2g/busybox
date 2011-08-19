@@ -97,7 +97,12 @@ CFLAGS += $(strip $(subst ",,$(CONFIG_EXTRA_CFLAGS)))
 #"))
 endif
 
-LDLIBS += m crypt
+LDLIBS += m
+
+ifeq (,$(findstring ANDROID, $(strip $(subst ",,$(CONFIG_EXTRA_CFLAGS)))))
+# There is no libcrypt on Android
+LDLIBS += crypt
+endif
 
 ifeq ($(CONFIG_PAM),y)
 LDLIBS += pam pam_misc
