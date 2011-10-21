@@ -87,7 +87,7 @@ char *conf_get_default_confname(void)
 int conf_read_simple(const char *name)
 {
 	FILE *in = NULL;
-	char line[1024];
+	char line[4096];
 	char *p, *p2;
 	struct symbol *sym;
 	int i;
