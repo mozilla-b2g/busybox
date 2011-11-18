@@ -10,13 +10,13 @@ ifneq ($(strip $(SHOW_COMMANDS)),)
 BB_VERBOSE="V=1"
 endif
 
-.PHONY: busybox-build
+.PHONY: busybox
 
-droid: busybox-build
+droid: busybox
 
-linaro-supplement: busybox-build
+systemtarball: busybox
 
-busybox-build: $(TARGET_CRTBEGIN_DYNAMIC_O) $(TARGET_CRTEND_O) $(TARGET_OUT_STATIC_LIBRARIES)/libm.so $(TARGET_OUT_STATIC_LIBRARIES)/libc.so $(TARGET_OUT_STATIC_LIBRARIES)/libdl.so
+busybox: $(TARGET_CRTBEGIN_DYNAMIC_O) $(TARGET_CRTEND_O) $(TARGET_OUT_STATIC_LIBRARIES)/libm.so $(TARGET_OUT_STATIC_LIBRARIES)/libc.so $(TARGET_OUT_STATIC_LIBRARIES)/libdl.so
 	cd external/busybox && \
 	sed -e "s|^CONFIG_CROSS_COMPILER_PREFIX=.*|CONFIG_CROSS_COMPILER_PREFIX=\"$(BB_TC_PREFIX)\"|;s|^CONFIG_EXTRA_CFLAGS=.*|CONFIG_EXTRA_CFLAGS=\"$(BB_COMPILER_FLAGS)\"|" configs/android_defconfig >.config && \
 	export PATH=$(BB_TC_DIR):$(PATH) && \
